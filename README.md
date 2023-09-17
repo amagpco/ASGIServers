@@ -1,5 +1,19 @@
 # ASGIServers
 
+## Why ASGI?
+
+Most well established Python Web frameworks started out as WSGI-based frameworks.
+
+WSGI applications are a single, synchronous callable that takes a request and returns a response. This doesn’t allow for long-lived connections, like you get with long-poll HTTP or WebSocket connections, which WSGI doesn't support well.
+
+Having an async concurrency model also allows for options such as lightweight background tasks, and can be less of a limiting factor for endpoints that have long periods being blocked on network I/O such as dealing with slow HTTP requests.
+
+<hr/>
+
+## Alternative ASGI servers
+
+A strength of the ASGI protocol is that it decouples the server implementation from the application framework. This allows for an ecosystem of interoperating webservers and application frameworks.
+
 * Uvicorn
 *  Daphne
 * Hypercorn 
